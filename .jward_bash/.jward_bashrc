@@ -1,6 +1,6 @@
-source .aliases
-source .exports
-source .functions
+source ~/.jward_bash/.aliases
+source ~/.jward_bash/.exports
+source ~/.jward_bash/.functions
 
 # zsh completion more like bash
 # setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE no_always_last_prompt noautomenu

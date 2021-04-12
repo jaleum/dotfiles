@@ -10,7 +10,7 @@ PROMPT='[ Bootstrap ]'
 
 # symlink dotfiles, excluding particular files
 link () {
-  for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md$|.*.sh$' ) ; do
+  for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*\.md$|.*\.sh$' ) ; do
     echo $file
     ln -sv "$PWD/$file" "$HOME"
   done

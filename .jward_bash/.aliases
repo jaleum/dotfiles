@@ -20,7 +20,7 @@ alias rb="git rebase origin/master"
 alias rbc="git rebase --continue"
 
 # helpful bash
-alias vb="vim ~/.local.bash"
+alias vb="vim ~/.jward_bash"
 alias sb="source ~/.local.bash"
 alias vc="vim ~/.vimrc"
 alias ll="ls -l"
