@@ -24,9 +24,8 @@ alias rbc="git rebase --continue"
 alias cb="git rev-parse --abbrev-ref HEAD"
 
 # helpful bash
-#alias vb="vim ~/.jward_bash"
+alias ls="ls -G"
 alias sb="source ~/.zshrc"
-alias vc="vim ~/.vimrc"
 alias ll="ls -Al"
 alias his="history"
 

@@ -19,10 +19,21 @@ rgrep() {
   grep -IR --exclude-dir={target,.git,.idea} $1 $2
 }
 
-# edit bash fiels and call git status to remind me to commit
+# edit bash files and call git status to remind me to commit
 vb() {
   currdir=`pwd`
   cd ~/.jward_bash
+
+  vim .
+  ss
+
+  cd "$currdir"
+}
+
+# edit vim files and call git status to remind me to commit
+vv() {
+  currdir=`pwd`
+  cd ~/.jward_vim
 
   vim .
   ss

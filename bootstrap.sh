@@ -12,10 +12,10 @@ PROMPT='[ Bootstrap ]'
 link () {
   for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*\.md$|.*\.sh$' ) ; do
     echo $file
-    ln -sv "$PWD/$file" "$HOME"
+    ln -sv "$PWD/$file" "${HOME}/.jward_${file}"
   done
 
-  echo_with_prompt "Done linking, ensure .jward_bashrc is referenced in the correct rc/profile file"
+  echo_with_prompt "Done linking, ensure jward.bashrc and jward.vimrc are referenced in the correct rc/profile file"
 }
 
 install_tools () {
@@ -40,7 +40,7 @@ oh_my_zsh() {
 # execute bootstrapping steps
 execute_func_with_prompt link "symlink everything"
 install_tools
-execute_func_with_prompt oh_my_zsh "install oh my zsh"
+#execute_func_with_prompt oh_my_zsh "install oh my zsh"
 
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here
