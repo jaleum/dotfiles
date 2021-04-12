@@ -27,7 +27,7 @@ alias cb="git rev-parse --abbrev-ref HEAD"
 #alias vb="vim ~/.jward_bash"
 alias sb="source ~/.zshrc"
 alias vc="vim ~/.vimrc"
-alias ll="ls -l"
+alias ll="ls -Al"
 alias his="history"
 
 # random mac fix stuff
