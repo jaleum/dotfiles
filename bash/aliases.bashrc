@@ -27,7 +27,8 @@ alias cb="git rev-parse --abbrev-ref HEAD"
 alias ls="ls -G"
 alias sb="source ~/.zshrc"
 alias ll="ls -Al"
-alias his="history"
+alias h="history -100 -1"
+alias hg="history 1 | grep"
 
 # random mac fix stuff
 alias fclear="osascript -e 'if application \"Terminal\" is frontmost then tell application \"System Events\" to keystroke \"k\" using command down'"
