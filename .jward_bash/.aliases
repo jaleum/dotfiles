@@ -20,9 +20,12 @@ alias coma="git commit --amend"
 alias rb="git rebase origin/master"
 alias rbc="git rebase --continue"
 
+# retrieves the current branch
+alias cb="git rev-parse --abbrev-ref HEAD"
+
 # helpful bash
-alias vb="vim ~/.jward_bash"
-alias sb="source ~/.local.bash"
+#alias vb="vim ~/.jward_bash"
+alias sb="source ~/.zshrc"
 alias vc="vim ~/.vimrc"
 alias ll="ls -l"
 alias his="history"

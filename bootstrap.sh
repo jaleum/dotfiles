@@ -32,10 +32,15 @@ brew_install() {
   "$( pwd )/brew.sh"
 }
 
+oh_my_zsh() {
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
 
 # execute bootstrapping steps
 execute_func_with_prompt link "symlink everything"
 install_tools
+execute_func_with_prompt oh_my_zsh "install oh my zsh"
 
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here

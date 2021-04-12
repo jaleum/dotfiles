@@ -6,5 +6,5 @@ for file in $( ls -A "$home_dir" | grep -v ".jward_bashrc" ); do
 done
 
 # zsh completion more like bash
-# setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE no_always_last_prompt noautomenu
+setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE no_always_last_prompt noautomenu
 
