@@ -1,16 +1,31 @@
 " change leader to space
 map <space> <leader>
 
-" normal mappings 
-" ===============
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Normal mappings (nore means non-recursive)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>w :w<cr>
 nnoremap <leader>nh :nohlsearch<CR>
 nnoremap <leader>nn :set nonumber<CR>
 nnoremap <leader>nm :set number<CR>
 
-" insert mappings
-" ===============
+" Smart way to move between windows
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Insert mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap hjk <esc>
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Visual mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" copy to system clipboard
+vnoremap <leader>c "*y

@@ -12,8 +12,8 @@ set cursorline         " highlights the selected line
 set laststatus=2       " show file path
 set title              " show file name in tab
 
-
 " editing
+filetype plugin indent on  " indent based on the filetype, settings in ~/.vim/indent
 set autoindent         " enable auto indent
 set tabstop=2          " make tab 2 spaces
 set shiftwidth=2       " auto indent between braces
