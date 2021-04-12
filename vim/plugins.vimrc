@@ -6,6 +6,9 @@ call plug#begin('~/.vim/plugged')
 " colorscheme
 Plug 'altercation/vim-colors-solarized'
 
+" show git changes in left column
+Plug 'airblade/vim-gitgutter'
+
 " vim directory navigation
 "Plug 'scrooloose/nerdtree'
 
