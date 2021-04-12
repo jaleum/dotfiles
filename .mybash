@@ -1,0 +1,212 @@
+# alias vim to use mvim
+alias vim="mvim -v"
+
+# common directories
+alias dsk="cd ~/Desktop"
+alias sshc="vim ~/.ssh/config"
+alias src="cd ~/workspace/source"
+alias cfg="cd ~/workspace/config && gf && rb"
+alias ci="cd ~/workspace/ci-job-configs"
+
+# git stuff
+alias ss="git status"
+alias pl="git pull"
+alias aa="git add -A && ss"
+alias au="git add -u && ss"
+alias gf="git fetch && ss"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gl="git log"
+alias gs="git stash"
+alias gsp="git stash pop"
+alias gsl="git stash list"
+alias cm="git checkout master"
+alias unc="git reset HEAD^"
+alias lp="unc && gs && pl && gsp"
+alias coma="git commit --amend"
+alias mm="git merge origin/master"
+alias rb="git rebase origin/master"
+alias rbc="git rebase --continue"
+alias df="arc diff"
+
+# helpful bash
+alias vb="vim ~/.local.bash"
+alias sb="source ~/.local.bash"
+alias vc="vim ~/.vimrc"
+alias ll="ls -l"
+alias si="sudo -i"
+alias xx="exit"
+alias fclear="osascript -e 'if application \"Terminal\" is frontmost then tell application \"System Events\" to keystroke \"k\" using command down'"
+alias sound="sudo killall coreaudiod"
+alias ssha="ssh-add -K ~/.ssh/id_rsa"
+alias his="history"
+
+# zsh completion more like bash
+# setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE no_always_last_prompt noautomenu
+
+# exports
+export VISUAL='vim'  # default GUI editor
+export EDITOR="$VISUAL"  # default command line editor
+export IGNOREEOF=2  # prevent terminal window from closing on ctrl-d 2 times
+export HISTCONTROL=ignoredups  # don't save immediate duplicates
+export HISTSIZE=100000
+shopt -s histappend  # append to history rather than rewrite
+
+# ls coloring
+export CLICOLOR=1;
+export LSCOLORS=ExFxcxdxCxegedabagacad;
+
+al() {
+  aurora job list smf1/*/devel/*${USER}*
+}
+
+cl() { cd "$1" && ls; }
+cs() { cd "$1" && ss; }
+
+cr() {
+  service="smf1/adtrackerstaging/devel/jward-adtrackerstaging"
+  if [ "$1" = "m" ]; then
+    service="smf1/adtrackerstaging/devel/jward-master-adtrackerstaging"
+  fi
+
+  aurora job create $service science/ads/adtracker/adtracker.aurora
+}
+
+com() { git commit -m "$1"; }
+
+fin() { find . -name "$1"; }
+
+gr() {
+  if [ "$#" -eq 0 ]; then
+    git restore .
+  else
+    git restore $@
+  fi
+}
+
+# generate golden data
+gold() {
+  env gen_golden_data=1 ./pants test "tests/java/com/twitter/ads/$1"
+}
+
+# this tool scrapes jenkins log output for unique compilation errors
+jl() {
+  currdir=`pwd`
+  src
+
+  job=$1
+
+  ./sandbox/users/sdelmore/log-collector/collect-logs https://ci.twitter.biz/job/source_auto_sandbox_phab_production/$job/consoleText
+
+  cd $currdir
+}
+
+# kill aurora jobs
+kl() {
+  dc="smf1"
+  env="devel"
+  job=$1
+  if [[ $job =~ ^.*adtracker.*$ ]]; then
+    service="adtrackerstaging"
+  elif [[ $job =~ ^.*realtime_daemon.*$ ]]; then
+    service="ads-rtd-staging"
+  elif [[ $job =~ ^.*user-ad-history ]]; then
+    service="user-ad-history"
+  elif [[ $job =~ ^ids.* ]]; then
+    service="impression-data-service"
+  else 
+    echo "Unsupported service from package: $package"
+    return 1
+  fi
+
+  id="$dc/$service/$env/$job"
+
+  aurora job killall $id
+}
+
+klall() {
+  echo "Fetching all jobs for $USER"
+  jobs=`al`
+
+  if [ -z "$jobs" ]; then
+    echo "No jobs found"
+    return
+  fi
+
+  echo "Killing the following jobs: "
+  echo "${jobs// /$'\n'}"
+
+  wait_time=5
+  echo "Waiting for $wait_time seconds..."
+  sleep $wait_time
+  
+  for job in $jobs; do
+    aurora job killall $job
+  done
+}
+
+# pushes a branch to remote
+ph() { 
+  curr_branch=`cb`
+  git push origin --delete $curr_branch
+  git push origin $curr_branch
+}
+
+# pants stuff
+pn() {
+  currdir=`pwd`
+  src
+
+  command=$1
+
+  if [ "$command" = "ip" ]; then
+    command="idea-plugin"
+  fi
+
+  ./pants $command $2
+
+  cd $currdir
+}
+
+rgrep() {
+  grep -IR --exclude-dir={target,.git,.idea} $1 $2
+}
+
+# run pants test with an ads prefix
+tt() {
+  pn test "tests/java/com/twitter/ads/$1"
+}
+
+
+###-begin-web-script-content-###
+###-begin-run-completions-###
+#
+# yargs command completion script
+#
+# Installation: scripts/run null >> ~/.bashrc
+#    or scripts/run null >> ~/.bash_profile on OSX.
+#
+_yargs_completions()
+{
+    local cur_word args type_list
+
+    cur_word="${COMP_WORDS[COMP_CWORD]}"
+    args=("${COMP_WORDS[@]}")
+
+    # ask yargs to generate completions.
+    type_list=$(scripts/run --get-yargs-completions "${args[@]}")
+
+    COMPREPLY=( $(compgen -W "${type_list}" -- ${cur_word}) )
+
+    # if no match was found, fall back to filename completion
+    if [ ${#COMPREPLY[@]} -eq 0 ]; then
+      COMPREPLY=()
+    fi
+
+    return 0
+}
+complete -o default -F _yargs_completions run
+###-end-run-completions-###
+
+
+###-end-web-script-content-###
