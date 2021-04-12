@@ -1,0 +1,7 @@
+source .aliases
+source .exports
+source .functions
+
+# zsh completion more like bash
+# setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE no_always_last_prompt noautomenu
+

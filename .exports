@@ -1,0 +1,16 @@
+# exports
+export VISUAL='vim'  # default GUI editor
+export EDITOR="$VISUAL"  # default command line editor
+export IGNOREEOF=2  # prevent terminal window from closing on ctrl-d 2 times
+
+# history improvements
+export HISTCONTROL=ignoredups  # don't save immediate duplicates
+export HISTSIZE=100000
+export HISTIGNORE='ls:history'  # don't include certain commands in history
+export PROMPT_COMMAND='history -a'  # append to history before each bash command rather than on session close
+shopt -s histappend  # append to history rather than rewrite
+
+# ls coloring
+export CLICOLOR=1;
+export LSCOLORS=ExFxcxdxCxegedabagacad;
+

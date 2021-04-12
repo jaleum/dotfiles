@@ -1,0 +1,21 @@
+# change directories and print information (ss == git status)
+cl() { cd "$1" && ls; }
+cs() { cd "$1" && ss; }
+
+com() { git commit -m "$1"; }
+
+fin() { find . -name "$1"; }
+
+gr() {
+  if [ "$#" -eq 0 ]; then
+    git restore .
+  else
+    git restore $@
+  fi
+}
+
+# recursive grep, case insensitive
+rgrep() {
+  grep -IR --exclude-dir={target,.git,.idea} $1 $2
+}
+

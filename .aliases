@@ -1,0 +1,31 @@
+# alias vim to use mvim
+alias vim="mvim -v"
+
+# git stuff
+alias ss="git status"
+alias pl="git pull"
+alias aa="git add -A && ss"
+alias au="git add -u && ss"
+alias gf="git fetch && ss"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gl="git log"
+alias gs="git stash"
+alias gsp="git stash pop"
+alias gsl="git stash list"
+alias cm="git checkout master"
+alias unc="git reset HEAD^"
+alias coma="git commit --amend"
+alias rb="git rebase origin/master"
+alias rbc="git rebase --continue"
+
+# helpful bash
+alias vb="vim ~/.local.bash"
+alias sb="source ~/.local.bash"
+alias vc="vim ~/.vimrc"
+alias ll="ls -l"
+alias his="history"
+
+# random mac fix stuff
+alias fclear="osascript -e 'if application \"Terminal\" is frontmost then tell application \"System Events\" to keystroke \"k\" using command down'"
+alias sound="sudo killall coreaudiod"
