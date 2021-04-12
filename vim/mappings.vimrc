@@ -15,6 +15,15 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+" edit vimrc
+nnoremap <leader>vv :vs ~/.jward_vim<cr>
+nnoremap <leader>sv :source ~/.vimrc<cr>
+
+" plugin management
+nnoremap <leader>ip :InstallPlugins<cr>
+nnoremap <leader>up :UpdatePlugins<cr>
+nnoremap <leader>cp :CleanPlugins<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

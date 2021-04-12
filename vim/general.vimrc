@@ -7,20 +7,23 @@ colorscheme solarized  " set the vim colorscheme
 
 " layout
 set number             " show line numbers
-set ruler              " show row and column numbers
 set cursorline         " highlights the selected line
-set laststatus=2       " show file path
 set title              " show file name in tab
 
 " editing
 filetype plugin indent on  " indent based on the filetype, settings in ~/.vim/indent
 set autoindent         " enable auto indent
-set tabstop=2          " make tab 2 spaces
+set tabstop=2          " number of visual spaces per tab
+set softtabstop=2      " number of spaces in tab when editing
+set expandtab          " tabs converted to spaces
 set shiftwidth=2       " auto indent between braces
-set expandtab          " spaces instead of tabs
 set pastetoggle=<F2>   " toggle paste mode
 
 " highlighting
 set showmatch          " show matching brace
 set hlsearch           " highlight all search words
 set incsearch          " enable incremental search, showing matches as you type
+
+" misc
+set wildmenu           " visual autocompletee for command menu
+set lazyredraw         " redraw only when needed, performance

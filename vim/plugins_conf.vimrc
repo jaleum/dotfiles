@@ -2,3 +2,5 @@
 highlight clear SignColumn
 call gitgutter#highlight#define_highlights()
 set updatetime=100  " allow for faster git updates
+set signcolumn=yes  " always disply sign column
+
