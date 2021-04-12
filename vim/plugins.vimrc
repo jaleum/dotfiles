@@ -34,12 +34,3 @@ Plug 'jiangmiao/auto-pairs'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" helper commands to always update the plug snapshot
-command InstallPlugins
-  \ PlugInstall | PlugSnapshot! ~/.jward_vim/plug.snapshot
-
-command UpdatePlugins
-  \ PlugUpdate | PlugSnapshot! ~/.jward_vim/plug.snapshot
-
-command CleanPlugins
-  \ PlugClean | PlugSnapshot! ~/.jward_vim/plug.snapshot

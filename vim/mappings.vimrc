@@ -20,9 +20,10 @@ nnoremap <leader>vv :vs ~/.jward_vim<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 
 " plugin management
-nnoremap <leader>ip :InstallPlugins<cr>
-nnoremap <leader>up :UpdatePlugins<cr>
-nnoremap <leader>cp :CleanPlugins<cr>
+nnoremap <leader>pi :PlugInstall<cr>
+nnoremap <leader>pu :PlugUpdate<cr>
+nnoremap <leader>pc :PlugClean<cr>
+nnoremap <leader>ps :PlugSnapshot! ~/.jward_vim/plug.snapshot<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mappings
