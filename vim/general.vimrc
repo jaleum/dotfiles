@@ -9,6 +9,7 @@ colorscheme solarized  " set the vim colorscheme
 set number             " show line numbers
 set cursorline         " highlights the selected line
 set title              " show file name in tab
+set colorcolumn=100    " add a righthand column for seeing recommended file width
 
 " editing
 filetype plugin indent on  " indent based on the filetype, settings in ~/.vim/indent

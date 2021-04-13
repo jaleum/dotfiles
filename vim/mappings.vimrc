@@ -25,6 +25,9 @@ nnoremap <leader>pu :PlugUpdate<cr>
 nnoremap <leader>pc :PlugClean<cr>
 nnoremap <leader>ps :PlugSnapshot! ~/.jward_vim/plug.snapshot<cr>
 
+" strip all trailing whitespace
+nnoremap <leader>sw :%s/\s\+$//e<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
