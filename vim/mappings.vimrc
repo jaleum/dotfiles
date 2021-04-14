@@ -37,6 +37,10 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
+" iterm sends hex code 0x4 (or ctrl-d) when fn-Del (forward delete) is pressed
+" map this to the vim forward delete
+inoremap <C-d> <Del>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

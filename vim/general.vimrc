@@ -19,6 +19,7 @@ set softtabstop=2      " number of spaces in tab when editing
 set expandtab          " tabs converted to spaces
 set shiftwidth=2       " auto indent between braces
 set pastetoggle=<F2>   " toggle paste mode
+set backspace=indent,eol,start  " fix backspacing behavior
 
 " highlighting
 set showmatch          " show matching brace
