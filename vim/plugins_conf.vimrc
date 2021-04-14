@@ -6,5 +6,5 @@ set signcolumn=yes  " always disply sign column
 
 " autopairs
 let g:AutoPairsCenterLine = 0  " disable jumping to center of screen when adding pair
-let g:AutoPairsMapBS = 1  " disable deleting bracket pairs
+let g:AutoPairsMapBS = 0  " disable deleting bracket pairs
 
