@@ -22,9 +22,11 @@ brew update
 brew upgrade
 
 brew install macvim
+brew install python
 
 brew install --cask iterm2
 brew install --cask sublime-text
+brew install --cask postman
 
 echo_with_prompt "visit this link for setting up solarized in iterm/sublime https://github.com/altercation/vim-colors-solarized"
 
