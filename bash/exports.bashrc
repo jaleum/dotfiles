@@ -16,3 +16,8 @@ setopt INC_APPEND_HISTORY  # append to history rather than rewrite
 # export PROMPT_COMMAND='history -a'  # bash version of above
 # shopt -s histappend  # bash version of above
 
+# python
+export WORKSPACE="$HOME/workspace"
+export PYTHON_VENV="$WORKSPACE/python-venv"
+export PYTHON_VENV_NAME="my_env"
+

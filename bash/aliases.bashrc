@@ -1,6 +1,8 @@
 # alias vim to use mvim
 alias vim="mvim -v"
 
+alias wk="cd $WORKSPACE"
+
 # git stuff
 alias ss="git status"
 # alias ph="git push"
@@ -19,6 +21,13 @@ alias unc="git reset HEAD^"
 alias coma="git commit --amend"
 alias rb="git rebase origin/master"
 alias rbc="git rebase --continue"
+
+# python stuff
+# setup venv using py -m venv my_env_name
+alias py="python3.9"
+alias pya="source $WORKSPACE/$PYTHON_VENV/bin/activate"
+alias pyd="deactivate"
+
 
 # retrieves the current branch
 alias cb="git rev-parse --abbrev-ref HEAD"
