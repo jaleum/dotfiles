@@ -28,7 +28,6 @@ alias py="python3.9"
 alias pya="source $WORKSPACE/$PYTHON_VENV/bin/activate"
 alias pyd="deactivate"
 
-
 # retrieves the current branch
 alias cb="git rev-parse --abbrev-ref HEAD"
 
