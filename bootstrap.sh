@@ -7,11 +7,13 @@
 
 # baseline prompt used in utils
 PROMPT='[ Bootstrap ]'
+USER="jward"
+DOT_PREFIX="$HOME/.$USER_"
 
 # symlink dotfiles, excluding particular files
 link () {
   for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*\.md$|.*\.sh$' ) ; do
-    ln -fhsv "$PWD/$file" "${HOME}/.jward_${file}"
+    ln -fhsv "$PWD/$file" "${DOT_PREFIX}${file}"
   done
 }
 
@@ -47,8 +49,8 @@ setup_dotfiles() {
   link
 
   echo_with_prompt "Setting up zshrc and vimrc"
-  echo "source ~/.jward_bash/jward.bashrc" > "$zshrc"
-  echo "source ~/.jward_vim/jward.vimrc" > "$vimrc"
+  echo "source ${DOT_PREFIX}sh/${USER}.shrc" > "$zshrc"
+  echo "source ${DOT_PREFIX}vim/${USER}.vimrc" > "$vimrc"
 
   source "$zshrc"
 }

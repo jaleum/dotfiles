@@ -1,0 +1,7 @@
+# source all personal files minus this one
+
+home_dir="$HOME/.jward_sh"
+for file in $( ls -A "$home_dir" | grep -v "jward.shrc" ); do
+  source "$home_dir/$file"
+done
+

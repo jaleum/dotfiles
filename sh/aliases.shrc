@@ -31,7 +31,7 @@ alias pyd="deactivate"
 # retrieves the current branch
 alias cb="git rev-parse --abbrev-ref HEAD"
 
-# helpful bash
+# helpful sh
 alias ls="ls -G"
 alias sb="source ~/.zshrc"
 alias ll="ls -Al"
