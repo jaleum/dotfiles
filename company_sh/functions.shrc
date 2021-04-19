@@ -1,0 +1,17 @@
+# commit company dotfiles
+cdotc() {
+  currdir=`pwd`
+  cdot && aa && com "$1"
+  cd "$currdir"
+}
+
+# edit company bash files and call git status to remind me to commit
+vc() {
+  currdir=`pwd`
+
+  cd ~/.company_sh
+  vim .
+  ss
+
+  cd "$currdir"
+}
