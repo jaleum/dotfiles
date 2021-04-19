@@ -8,11 +8,11 @@
 # Install homebrew if it is not installed
 which brew 1>&/dev/null
 if [ ! "$?" -eq 0 ] ; then
-	echo_with_prompt "Homebrew not installed. Attempting to install Homebrew"
+  echo_with_prompt "Homebrew not installed. Attempting to install Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	if [ ! "$?" -eq 0 ] ; then
-		echo_with_prompt "Something went wrong. Exiting..." && exit 1
-	fi
+  if [ ! "$?" -eq 0 ] ; then
+    echo_with_prompt "Something went wrong. Exiting..." && exit 1
+  fi
 fi
 
 # Make sure we’re using the latest Homebrew
