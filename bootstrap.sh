@@ -28,10 +28,10 @@ link () {
   done
 }
 
-add_to_file() {
+append_to_file() {
   line="$1"
   file="$2"
-  echo_with_prompt "Adding '$line' to '$file'"
+  echo_with_prompt "Appending '$line' to '$file'"
 
   # append the line to the file if it doesn't exit
   if ! grep -q "$line" $file; then
@@ -43,8 +43,8 @@ add_to_file() {
 link_dotfiles() {
   link
 
-  add_to_file "source ${DOT_PREFIX}sh/${USER}.shrc" "$SHRC"
-  add_to_file "source ${DOT_PREFIX}vim/${USER}.vimrc" "$HOME/.vimrc"
+  append_to_file "source ${DOT_PREFIX}sh/${USER}.shrc" "$SHRC"
+  append_to_file "source ${DOT_PREFIX}vim/${USER}.vimrc" "$HOME/.vimrc"
 
   source "$SHRC"
 }
@@ -72,7 +72,7 @@ create_company_dotfiles() {
   home_company_sh="$HOME/.company_sh"
   ln -fhsv $local_company_sh $home_company_sh
 
-  add_to_file "source $home_company_sh/company.shrc" "$SHRC"
+  append_to_file "source $home_company_sh/company.shrc" "$SHRC"
   source "$SHRC"
 
   cd $DOTFILES
