@@ -13,8 +13,8 @@ export HISTIGNORE='ls:history'  # don't include certain commands in history
 setopt EXTENDED_HISTORY  # include timestamps
 
 setopt INC_APPEND_HISTORY  # append to history rather than rewrite
-# export PROMPT_COMMAND='history -a'  # bash version of above
-# shopt -s histappend  # bash version of above
+# export PROMPT_COMMAND='history -a'  # two lines are bash version of above
+# shopt -s histappend
 
 # python
 export WORKSPACE="$HOME/workspace"
