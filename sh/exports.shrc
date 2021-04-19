@@ -8,8 +8,10 @@ export IGNOREEOF=2  # prevent terminal window from closing on ctrl-d 2 times
 export HISTSIZE=100000
 export HISTIGNORE='ls:history'  # don't include certain commands in history
 
-# python
+# paths
 export WORKSPACE="$HOME/workspace"
-export PYTHON_VENV="$WORKSPACE/python-venv"
+export DOTFILES="$WORKSPACE/dotfiles"
+export PYTHON_VENV_DIR="$WORKSPACE/python-venv/"
 export PYTHON_VENV_NAME="my_env"
+export PYTHON_VENV="$PYTHON_VENV_DIR$PYTHON_VENV_NAME"
 

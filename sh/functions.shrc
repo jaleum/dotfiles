@@ -4,6 +4,13 @@ cs() { cd "$1" && ss; }
 
 com() { git commit -m "$1"; }
 
+# commit dotfiles
+dotc() {
+  currdir=`pwd`
+  dot && aa && com "$1" && ph
+  cd "$currdir"
+}
+
 fin() { find . -name "$1"; }
 
 gr() {
