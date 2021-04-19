@@ -1,5 +1,4 @@
 # source all company files minus this one
 home_dir="$HOME/.company_sh"
-for file in $( ls -A "$home_dir" | grep -v "company.shrc" ); do
-  source "$home_dir/$file"
-done
+source $home_dir/aliases.shrc
+source $home_dir/functions.shrc

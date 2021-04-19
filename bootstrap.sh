@@ -28,51 +28,23 @@ link () {
   done
 }
 
-# creates backup files for the dotfiles
-create_backups() {
-  bak=".bak"
-  files="$@"
-
-  echo_with_prompt "Moving existing dotfiles files into backups"
-  for file in $files; do
-    bak_file=$file$bak
-
-    if [ -f "$bak_file" ]; then
-      echo_with_prompt "$bak_file already exist, overwrite? (y/n)"
-      read resp
-      if [ "$resp" != 'y' ]; then
-	echo_with_prompt "Cannot proceed until $bak_file is removed"
-	return 1
-      fi
-    fi
-
-    echo_with_prompt "Creating $bak_file"
-    mv "$file" "$bak_file"
-  done
-}
-
 add_to_file() {
   line="$1"
   file="$2"
-  echo_with_prompt "Adding $line to $file"
-  if ! [ cat $file | grep $line ]; then
+  echo_with_prompt "Adding '$line' to '$file'"
+
+  # append the line to the file if it doesn't exit
+  if ! grep -q "$line" $file; then
     echo "$line" >> "$file"
   fi
 }
 
 # symlinks dotfiles and adds them to base files
 link_dotfiles() {
-  vimrc="$HOME/.vimrc"
-
-  create_backups $SHRC $vimrc
-  if [ "$?" -ne 0 ]; then
-    return 1
-  fi
-
   link
 
   add_to_file "source ${DOT_PREFIX}sh/${USER}.shrc" "$SHRC"
-  add_to_file "source ${DOT_PREFIX}vim/${USER}.vimrc" "$vimrc"
+  add_to_file "source ${DOT_PREFIX}vim/${USER}.vimrc" "$HOME/.vimrc"
 
   source "$SHRC"
 }
@@ -92,19 +64,16 @@ create_company_dotfiles() {
 
   echo_with_prompt "Initializing git repo"
   git init
-  cp -R $DOTFILES/company_sh $company_dotfiles/sh
+  local_company_sh="$company_dotfiles/sh"
+  cp -R $DOTFILES/company_sh $local_company_sh
   git add -A && git commit -m "init"
 
-  company_sh="$HOME/.company_sh"
   # create a symbolic link to the company dotfiles, overwritting anything existing
-  ln -fhsv $company_dotfiles $company_sh
+  home_company_sh="$HOME/.company_sh"
+  ln -fhsv $local_company_sh $home_company_sh
 
-  echo_with_prompt "Adding company.shrc to $SHRC"
-  company_shrc_source="source $company_sh/company.shrc"
-  if ! [ cat $SHRC | grep $company_shrc_source ]; then
-    echo $company_shrc_source >> "$SHRC"
-    source "$SHRC"
-  fi
+  add_to_file "source $home_company_sh/company.shrc" "$SHRC"
+  source "$SHRC"
 
   cd $DOTFILES
 }
@@ -142,6 +111,8 @@ execute_func_with_prompt link_dotfiles "link dotfiles"
 execute_func_with_prompt create_company_dotfiles "create company dotfiles"
 install_tools
 execute_func_with_prompt python_init "initialize python"
+
+echo_with_prompt "Bootstrap complete!"
 
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here
