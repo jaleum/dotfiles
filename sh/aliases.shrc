@@ -25,7 +25,7 @@ alias rb="git rebase origin/master"
 alias rbc="git rebase --continue"
 
 # python stuff
-alias py="python3.9"
+alias py="python"
 alias pya="source $PYTHON_VENV/bin/activate"
 alias pyd="deactivate"
 
