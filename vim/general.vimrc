@@ -11,6 +11,8 @@ set cursorline         " highlights the selected line
 set title              " show file name in tab
 set colorcolumn=100    " add a righthand column for seeing recommended file width
 set noshowmode         " disable mode below status bar since airline is there
+set wrap               " wraps text visually rather than editting text
+set linebreak          " tries not to break in the middle of a word
 
 " editing
 filetype plugin indent on  " indent based on the filetype, settings in ~/.vim/indent
