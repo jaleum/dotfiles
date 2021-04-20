@@ -46,3 +46,4 @@ inoremap <C-d> <Del>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " copy to system clipboard
 vnoremap <leader>c "*y
+vnoremap hjk <esc>

@@ -1,3 +1,4 @@
+# TODO: These should exit in a profile/login rather than sourced on each shell init
 setopt HIST_IGNORE_DUPS  # don't save immediate duplicates
 # export HISTCONTROL=ignoredups  # bash version of above
 

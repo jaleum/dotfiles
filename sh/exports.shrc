@@ -1,3 +1,4 @@
+# TODO: These should exit in a profile/login rather than sourced on each shell init
 # exports
 export PATH="${HOME}/bin":$PATH
 export VISUAL='vim'  # default GUI editor
