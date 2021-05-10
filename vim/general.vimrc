@@ -13,6 +13,8 @@ set colorcolumn=100    " add a righthand column for seeing recommended file widt
 set noshowmode         " disable mode below status bar since airline is there
 set wrap               " wraps text visually rather than editting text
 set linebreak          " tries not to break in the middle of a word
+set splitbelow         " new splits are on bottom rather than top
+set splitright         " new vertical splits are on right rather than left
 
 " editing
 filetype plugin indent on  " indent based on the filetype, settings in ~/.vim/indent
