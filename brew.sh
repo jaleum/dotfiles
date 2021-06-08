@@ -24,6 +24,7 @@ brew upgrade
 brew install macvim
 brew install python
 brew install ren  # rename utility command
+brew install ripgrep  # faster grep
 
 brew install --cask iterm2
 brew install --cask sublime-text
