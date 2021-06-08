@@ -21,7 +21,7 @@ gr() {
   fi
 }
 
-# recursive grep, case insensitive
+# recursive grep, case insensitive. Prefer ripgrep (rg) when possible, should be faster
 rgrep() {
   grep -IR --exclude-dir={target,.git,.idea} $1 $2
 }
