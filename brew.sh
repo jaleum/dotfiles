@@ -30,5 +30,8 @@ brew install --cask iterm2
 brew install --cask sublime-text
 brew install --cask postman
 
+# https://github.com/jakehilborn/displayplacer used for fixing mac displays always re-arranging.
+brew tap jakehilborn/jakehilborn && brew install displayplacer
+
 echo_with_prompt "visit this link for setting up solarized in iterm/sublime https://github.com/altercation/vim-colors-solarized"
 
