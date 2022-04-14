@@ -43,5 +43,5 @@ alias hg="history 1 | grep"
 alias fclear="osascript -e 'if application \"Terminal\" is frontmost then tell application \"System Events\" to keystroke \"k\" using command down'"
 alias sound="sudo killall coreaudiod"
 
-# displays at desk 20.117 Twitter Seattle
-alias dw="displayplacer \"id:7056EABC-38F1-6C4C-E999-71C6D17AA25E origin:(0,0)\" \"id:6C457DF8-AD0C-3F8C-3CB4-9A1917777729 origin:(1062,-1080)\" \"id:742D22F2-DFF9-CF75-AFBE-FB107D52733A origin:(-858,-1080)\""
+# adjusts home monitors back to how I like them
+alias dh="displayplacer \"id:7056EABC-38F1-6C4C-E999-71C6D17AA25E origin:(0,0)\" \"id:FE5B065C-246C-433B-5236-0798931B48EF origin:(871,-1080)\" \"id:FE3F1FD7-09F2-FE6C-8F59-34F71F119FC6 origin:(-1049,-1080)\""
