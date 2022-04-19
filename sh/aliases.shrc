@@ -44,4 +44,5 @@ alias fclear="osascript -e 'if application \"Terminal\" is frontmost then tell a
 alias sound="sudo killall coreaudiod"
 
 # adjusts home monitors back to how I like them
+alias dl="displayplacer list"
 alias dh="displayplacer \"id:7056EABC-38F1-6C4C-E999-71C6D17AA25E origin:(0,0)\" \"id:FE5B065C-246C-433B-5236-0798931B48EF origin:(871,-1080)\" \"id:FE3F1FD7-09F2-FE6C-8F59-34F71F119FC6 origin:(-1049,-1080)\""
