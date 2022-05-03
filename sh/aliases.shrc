@@ -22,6 +22,8 @@ alias cm="git checkout master"
 alias unc="git reset HEAD^"
 alias coma="git commit --amend"
 alias rb="git rebase origin/master"
+alias rbi="git rebase -i origin/master"
+alias rbs="git rebase -i --autosquash origin/master"
 alias rbc="git rebase --continue"
 
 # python stuff
