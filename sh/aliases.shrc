@@ -3,7 +3,7 @@ alias vim="mvim -v"
 
 # common directories
 alias wk="cd $WORKSPACE"
-alias dot="cs $DOTFILES"
+alias dotf="cs $DOTFILES"
 
 # git stuff
 alias ss="git status"
