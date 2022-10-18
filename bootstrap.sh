@@ -5,6 +5,9 @@
 # include utils
 . "$( pwd )/utils.sh"
 
+# this script relies on exports existing already
+. "$( pwd )/sh/exports.shrc"
+
 # baseline prompt used in utils
 PROMPT='[ Bootstrap ]'
 USER="jward"

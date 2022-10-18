@@ -1,6 +1,5 @@
-# TODO: These should exit in a profile/login rather than sourced on each shell init
+# TODO: These should exist in a profile/login rather than sourced on each shell init
 # exports
-export PATH="${HOME}/bin":$PATH
 export VISUAL='vim'  # default GUI editor
 export EDITOR="$VISUAL"  # default command line editor
 export IGNOREEOF=2  # prevent terminal window from closing on ctrl-d 2 times
@@ -15,4 +14,6 @@ export DOTFILES="$WORKSPACE/dotfiles"
 export PYTHON_VENV_DIR="$WORKSPACE/python-venv/"
 export PYTHON_VENV_NAME="my_env"
 export PYTHON_VENV="$PYTHON_VENV_DIR$PYTHON_VENV_NAME"
+export BIN_PATH="${HOME}/bin"
+export PATH="$BIN_PATH":$PATH # add a home bin to path for scripts
 

@@ -7,7 +7,7 @@ com() { git commit -m "$1"; }
 # commit dotfiles
 dotc() {
   currdir=`pwd`
-  dot && aa && com "$1" && ph
+  dotf && aa && com "$1" && ph
   cd "$currdir"
 }
 
@@ -24,6 +24,17 @@ gr() {
 # recursive grep, case insensitive. Prefer ripgrep (rg) when possible, should be faster
 rgrep() {
   grep -IR --exclude-dir={target,.git,.idea} $1 $2
+}
+
+# symlink an absolutate path
+sln() {
+  currdir=`pwd`
+  ln -fhsv "$currdir/$1" $2
+}
+
+# symlink a path to bin
+sbin() {
+  sln $1 $BIN_PATH
 }
 
 # edit sh files and call git status to remind me to commit

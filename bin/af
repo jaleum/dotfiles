@@ -1,0 +1,31 @@
+#!/bin/sh
+# Simple wrapper on arc feature to save some typing
+# Inspiration for argument parsing: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+
+positional=()
+dependent=false
+while [[ $# -gt 0 ]]; do
+  key="$1"
+
+  case "$key" in
+    -d|--dependent)
+    dependent=true  
+    shift # past argument
+    ;;
+    *)    # unknown option
+    positional+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+  esac
+done
+
+# branch name is a positional param
+if [ ${#positional[@]} -eq 1 ]; then
+  # remove "jward/" if it already exists
+  branch=$(echo "${positional[0]}" | sed 's/jward\///g')
+  args="jward/$branch"
+fi
+
+# intentionally didn't quote $args so it can be interpretted as two command line args
+arc feature $args
+
