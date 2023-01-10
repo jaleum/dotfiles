@@ -7,7 +7,7 @@ alias dotf="cs $DOTFILES"
 
 # git stuff
 alias ss="git status"
-# alias ph="git push"
+alias ph="git push"
 alias pl="git pull"
 alias aa="git add -A && ss"
 alias au="git add -u && ss"
