@@ -40,7 +40,7 @@ sbin() {
 # edit sh files and call git status to remind me to commit
 vb() {
   currdir=`pwd`
-  cd ~/.jward_sh
+  cd ~/.jacobw_sh
 
   vim .
   ss
@@ -51,7 +51,7 @@ vb() {
 # edit vim files and call git status to remind me to commit
 vv() {
   currdir=`pwd`
-  cd ~/.jward_vim
+  cd ~/.jacobw_vim
 
   vim .
   ss

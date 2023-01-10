@@ -16,14 +16,14 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
 " edit vimrc
-nnoremap <leader>vv :vs ~/.jward_vim<cr>
+nnoremap <leader>vv :vs ~/.jacobw_vim<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 
 " plugin management
 nnoremap <leader>pi :PlugInstall<cr>
 nnoremap <leader>pu :PlugUpdate<cr>
 nnoremap <leader>pc :PlugClean<cr>
-nnoremap <leader>ps :PlugSnapshot! ~/.jward_vim/plug.snapshot<cr>
+nnoremap <leader>ps :PlugSnapshot! ~/.jacobw_vim/plug.snapshot<cr>
 
 " strip all trailing whitespace
 nnoremap <leader>sw :%s/\s\+$//e<cr>

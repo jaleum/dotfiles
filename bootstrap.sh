@@ -10,7 +10,7 @@
 
 # baseline prompt used in utils
 PROMPT='[ Bootstrap ]'
-USER="jward"
+USER="jacobw"
 DOT_PREFIX="${HOME}/.${USER}_"
 SHRC="$HOME/.zshrc"
 
@@ -19,7 +19,7 @@ init() {
   if [ ! -d $DOTFILES ]; then
     echo_with_prompt "Moving dotfiles into $DOTFILES"
     mkdir -p $DOTFILES
-    mv `pwd` $DOTFILES
+    mv `pwd` $WORKSPACE
     cd $DOTFILES
   fi
 }

@@ -1,6 +1,6 @@
 # source shrc files, order matters
 
-home_dir="$HOME/.jward_sh"
+home_dir="$HOME/.jacobw_sh"
 source $home_dir/config.zshrc
 source $home_dir/exports.shrc
 source $home_dir/aliases.shrc

@@ -3,7 +3,7 @@
 # Utility functions that other dotfiles use
 
 echo_with_prompt () {
-  PROMPT="${PROMPT:-'[ jward_dotfiles ]'}"
+  PROMPT="${PROMPT:-'[ jacobw_dotfiles ]'}"
   echo "$PROMPT $@"
 }
 
