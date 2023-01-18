@@ -15,6 +15,11 @@ if [ ! "$?" -eq 0 ] ; then
   fi
 fi
 
+# Add brew to PATH
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Make sure we’re using the latest Homebrew
 brew update
 
@@ -26,9 +31,7 @@ brew install python
 brew install ren  # rename utility command
 brew install ripgrep  # faster grep
 
-brew install --cask iterm2
-brew install --cask sublime-text
-brew install --cask postman
+execute_func_with_prompt install_dev_apps "install dev apps"
 
 # https://github.com/jakehilborn/displayplacer used for fixing mac displays always re-arranging.
 brew tap jakehilborn/jakehilborn && brew install displayplacer
@@ -36,3 +39,8 @@ brew tap jakehilborn/jakehilborn && brew install displayplacer
 echo_with_prompt "visit this link for setting up solarized in iterm/vim/intellij https://github.com/altercation/solarized"
 echo_with_prompt "visit this link for setting up solarized in sublime https://packagecontrol.io/packages/Solarized%20Color%20Scheme"
 
+install_dev_apps() {
+  brew install --cask iterm2
+  brew install --cask sublime-text
+  brew install --cask postman
+}
