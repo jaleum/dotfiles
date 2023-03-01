@@ -24,6 +24,18 @@ init() {
   fi
 }
 
+init_zsh() {
+  if [ ! -d $ZSH_PLUGINS ]; then
+    mkdir -p $ZSH_PLUGINS
+  fi
+
+  cd $ZSH_PLUGINS
+  git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+  git clone https://github.com/ohmyzsh/ohmyzsh.git $ZSH_PLUGINS/ohmyzsh
+
+  cd $DOTFILES
+}
 # symlink dotfiles, excluding particular files
 link () {
   for file in $( ls -A | grep -vE '\..*|.*\.md$|.*\.sh$|company_sh' ) ; do
@@ -110,6 +122,7 @@ python_init() {
 
 # execute bootstrapping steps
 init
+execute_func_with_prompt init_zsh "download zsh plugins"
 execute_func_with_prompt link_dotfiles "link dotfiles"
 execute_func_with_prompt create_company_dotfiles "create company dotfiles"
 install_tools

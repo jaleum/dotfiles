@@ -15,9 +15,3 @@ setopt PROMPT_SUBST
 # syntax highlighting for the terminal commands
 source $zsh_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# fzf config to allow alt c for change directory
-bindkey "ç" fzf-cd-widget
-# fzf uses ripgrep by default
-export FZF_DEFAULT_COMMAND="rg --files --hidden"
-
-

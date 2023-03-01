@@ -10,6 +10,7 @@ export HISTIGNORE='ls:history'  # don't include certain commands in history
 
 # paths
 export WORKSPACE="$HOME/workspace"
+export ZSH_PLUGINS="$WORKSPACE/zsh-plugins"
 export DOTFILES="$WORKSPACE/dotfiles"
 export PYTHON_VENV_DIR="$WORKSPACE/python-venv/"
 export PYTHON_VENV_NAME="my_env"

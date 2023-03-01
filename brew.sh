@@ -31,6 +31,7 @@ brew install python
 brew install ren  # rename utility command
 brew install ripgrep  # faster grep
 
+execute_func_with_prompt install_fzf "install fzf"
 execute_func_with_prompt install_dev_apps "install dev apps"
 
 # https://github.com/jakehilborn/displayplacer used for fixing mac displays always re-arranging.
@@ -43,4 +44,16 @@ install_dev_apps() {
   brew install --cask iterm2
   brew install --cask sublime-text
   brew install --cask postman
+}
+
+install_fzf() {
+  brew install fzf
+
+  # To install useful key bindings and fuzzy completion:
+  $(brew --prefix)/opt/fzf/install
+
+  # fzf config to allow alt c for change directory
+  bindkey "ç" fzf-cd-widget
+  # fzf uses ripgrep by default
+  export FZF_DEFAULT_COMMAND="rg --files --hidden"
 }
