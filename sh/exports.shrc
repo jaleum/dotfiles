@@ -17,3 +17,5 @@ export PYTHON_VENV="$PYTHON_VENV_DIR$PYTHON_VENV_NAME"
 export BIN_PATH="${HOME}/bin"
 export PATH="$BIN_PATH":$PATH # add a home bin to path for scripts
 
+# terminal prompt
+export PROMPT='%F{cyan}%~ %F{red}$(git_branch)%f %# '

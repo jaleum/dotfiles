@@ -5,4 +5,5 @@ source $home_dir/config.zshrc
 source $home_dir/exports.shrc
 source $home_dir/aliases.shrc
 source $home_dir/functions.shrc
+source $home_dir/zsh-plugins.shrc
 

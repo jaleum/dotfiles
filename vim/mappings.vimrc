@@ -28,6 +28,15 @@ nnoremap <leader>ps :PlugSnapshot! ~/.jacobw_vim/plug.snapshot<cr>
 " strip all trailing whitespace
 nnoremap <leader>sw :%s/\s\+$//e<cr>
 
+" Start fzf
+nnoremap <leader>f :Files<cr>
+
+" search contents of files
+nnoremap <leader>s :Rg<cr>
+
+" toggle nerd tree
+nnoremap <C-n> :NERDTreeToggle<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

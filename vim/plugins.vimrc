@@ -28,11 +28,12 @@ Plug 'tpope/vim-sleuth'
 " automatically add pair for braces/brackets
 Plug 'jiangmiao/auto-pairs'
 
-" TODO vim directory navigation
-"Plug 'scrooloose/nerdtree'
+" vim directory navigation
+Plug 'preservim/nerdtree'
 
-" TODO fuzzy finder
-" Plug 'junegunn/fzf'
+" fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " TODO code completer like coc? better syntax highlighting? linting ALE?
 " folding?

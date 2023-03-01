@@ -13,6 +13,13 @@ dotc() {
 
 fin() { find . -name "$1"; }
 
+# This is only used for terminal prompt purposes
+git_branch() { 
+  git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/(\1)/p'
+}
+
+gbd() { git branch -d "$1" }
+
 gr() {
   if [ "$#" -eq 0 ]; then
     git restore .
@@ -35,6 +42,10 @@ sln() {
 # symlink a path to bin
 sbin() {
   sln $1 $BIN_PATH
+}
+
+sw() {
+  git switch $1 || git switch -c $1 $2;
 }
 
 # edit sh files and call git status to remind me to commit
