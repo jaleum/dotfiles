@@ -2,6 +2,8 @@
 cl() { cd "$1" && ls; }
 cs() { cd "$1" && ss; }
 
+cm() { git checkout main && gf && rb }
+
 com() { git commit -m "$1"; }
 
 # commit dotfiles
@@ -18,13 +20,23 @@ git_branch() {
   git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/(\1)/p'
 }
 
-gbd() { git branch -d "$1" }
+gbd() { git branch -D "$1" }
+
+gfr() { gf && rb }
 
 gr() {
   if [ "$#" -eq 0 ]; then
     git restore .
   else
     git restore $@
+  fi
+}
+
+grs() {
+  if [ "$#" -eq 0 ]; then
+    git restore --staged .
+  else
+    git restore --staged $@
   fi
 }
 
@@ -45,6 +57,10 @@ sbin() {
 }
 
 sw() {
+  swd $1 $2;
+}
+
+swd() {
   git switch $1 || git switch -c $1 $2;
 }
 
