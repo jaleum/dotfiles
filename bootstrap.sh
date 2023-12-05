@@ -127,6 +127,9 @@ execute_func_with_prompt link_dotfiles "link dotfiles"
 execute_func_with_prompt create_company_dotfiles "create company dotfiles"
 install_tools
 execute_func_with_prompt python_init "initialize python"
+echo_with_prompt "Run source $SHRC to complete"
+echo_with_prompt "Open vim mappings and run leader + pi to install vim plugins"
+echo_with_prompt "Run eval "$(/opt/homebrew/bin/brew shellenv)""
 
 echo_with_prompt "Bootstrap complete!"
 
