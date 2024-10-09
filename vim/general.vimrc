@@ -25,6 +25,7 @@ set expandtab          " tabs converted to spaces
 set shiftwidth=2       " auto indent between braces
 set pastetoggle=<F2>   " toggle paste mode
 set backspace=indent,eol,start  " fix backspacing behavior
+set mouse=a            " Allow mouse scrolling in all modes
 
 " highlighting
 set showmatch          " show matching brace

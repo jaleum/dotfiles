@@ -1,6 +1,10 @@
 " change leader to space
 map <space> <leader>
 
+" Allow line by line scrolling with mouse
+map <ScrollWheelUp> j
+map <ScrollWheelDown> k
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Normal mappings (nore means non-recursive)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

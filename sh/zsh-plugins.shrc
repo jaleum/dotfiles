@@ -1,5 +1,5 @@
 # used for configuring zsh plugins without needed oh my zsh installed
-zsh_dir="$WORKSPACE/zsh-plugins/"
+zsh_dir="$WORKSPACE/tools/zsh-plugins/"
 oh_dir="$zsh_dir/ohmyzsh/plugins/"
 
 # auto complete for terminal commands

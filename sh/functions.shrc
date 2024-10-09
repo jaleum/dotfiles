@@ -20,6 +20,8 @@ git_branch() {
   git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/(\1)/p'
 }
 
+ga() { git add "$1" }
+
 gbd() { git branch -D "$1" }
 
 gfr() { gf && rb }
