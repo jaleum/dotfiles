@@ -2,7 +2,7 @@
 cl() { cd "$1" && ls; }
 cs() { cd "$1" && ss; }
 
-cm() { git checkout main && gf && rb }
+cm() { git checkout main && gf && rb && gfp}
 
 com() { git commit -m "$1"; }
 
