@@ -8,8 +8,14 @@ com() { git commit -m "$1"; }
 
 # this function sets up my work display to be centered above my computer
 dw() {
-  # get the current display config
+  # get the displayplacer command that sets the current display configuration.
+  # This makes an assumption about the displayplacer list command output format.
   dp_curr=$(dl | tail -n 1)
+
+  # where the monitor should be located. You can get this by manually setting the display 
+  # where you'd like, running displayplacer list to get the coords, and setting this value.
+  # You shouldn't need to change it again. These coords are roughly top middle.
+  monitor_location="(-614,-1440)"
   
   # Check if the input contains exactly two ids
   if [[ $(echo "$dp_curr" | grep -o 'id:[^ ]*' | wc -l) -ne 2 ]]; then
@@ -17,8 +23,9 @@ dw() {
     return 1
   fi
 
-  # Replace the origin of the second display id with (-614,-1440), roughly top middle
-  dp_new=$(echo "$dp_curr" | sed -E 's/origin:\([0-9-]+,[0-9-]+\)/origin:(-614,-1440)/2')
+  # Replace the origin of the second display id with desired location.
+  # This assumes the external monitor is always second.
+  dp_new=$(echo "$dp_curr" | sed -E "s/origin:\([0-9-]+,[0-9-]+\)/origin:$monitor_location/2")
 
   # Print the modified command
   echo "Executing modified command: $dp_new"
