@@ -52,6 +52,49 @@ ga() { git add "$1" }
 
 gbd() { git branch -D "$1" }
 
+gbd() {
+  # Extract branches that have no upstream anymore
+  branches=$(gb | grep ": gone")
+
+  # Check if there are any branches to delete
+  if [[ -z "$branches" ]]; then
+    echo "No branches found to delete."
+    return
+  fi
+
+  # grab just the branch name and convert to array
+  branch_names=$(echo "$branches" | awk '{print $1}')
+  branch_names_arr=("${(f)branch_names}") # this is a zsh command
+
+  # Prompt user once for all branches
+  echo "The following branches were found:"
+  echo "$branches"
+  echo -n "Do you want to delete all of these branches? (y/n): "
+  read response
+
+  if [[ "$response" == "y" ]]; then
+    for branch in "${branch_names_arr[@]}"; do
+      git branch -D "$branch"
+    done
+
+    echo "Completed deleting branches"
+    return
+  fi
+
+  # Prompt user for each branch
+  for branch in "${branch_names_arr[@]}"; do
+    echo -n "Do you want to delete the branch '$branch'? (y/n): "
+    read single_response
+    if [[ "$single_response" == "y" ]]; then
+      git branch -D "$branch"
+    else
+      echo "Skipping branch '$branch'."
+    fi
+  done
+
+  echo "Completed deleting branches"
+}
+
 gfr() { gf && rb }
 
 gr() {
