@@ -3,6 +3,7 @@ cl() { cd "$1" && ls; }
 cs() { cd "$1" && ss; }
 
 cm() { git checkout main && gf && rb && gfp}
+cmm() { git checkout master && gf && rb && gfp}
 
 com() { git commit -m "$1"; }
 
@@ -50,7 +51,7 @@ git_branch() {
 
 ga() { git add "$1" }
 
-gbd() { git branch -D "$1" }
+gbr() { git branch -D "$1" }
 
 gbd() {
   # Extract branches that have no upstream anymore
@@ -130,7 +131,8 @@ sbin() {
 }
 
 sw() {
-  swd $1 $2;
+  branch_name="feature/jacobw/$1"
+  swd $branch_name $2;
 }
 
 swd() {
